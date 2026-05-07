@@ -6,31 +6,36 @@
     <title>letsmeilers seite</title>
     <style>
         body {
-            /* Das Bild wird als Hintergrund gesetzt und fixiert */
-            background-image: url('legacy-original-wallpaper-gameart-hd-download-v0-v9y6ryisq7vd1.jpg');
+            /* Hier wird jetzt dein neues bg.jpg geladen */
+            background-image: url('bg.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            background-color: #222; /* Fallback-Farbe, falls das Bild mal lädt */
             
             margin: 0;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: sans-serif;
+            font-family: 'Arial Black', sans-serif;
+            overflow: hidden;
         }
 
         .content {
-            background: rgba(255, 255, 255, 0.8); /* Weißer Kasten, leicht durchsichtig */
-            padding: 20px 50px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            background: rgba(255, 255, 255, 0.85); /* Hübscher weißer Kasten */
+            padding: 30px 60px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center;
         }
 
         h1 {
-            font-size: 5rem;
+            font-size: 6rem;
             margin: 0;
-            color: #333;
+            color: #ff4757;
+            text-transform: uppercase;
+            letter-spacing: 5px;
         }
     </style>
 </head>
