@@ -3,47 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>letsmeilers seite</title>
+    <title>Schmillos Site</title>
     <style>
+        /* Hier passiert die Magie für das Aussehen */
         body {
-            /* Hier wird jetzt dein neues bg.jpg geladen */
-            background-image: url('bg.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-color: #222; /* Fallback-Farbe, falls das Bild mal lädt */
-            
+            background-color: #2c2c2c; /* Das dunkle Grau */
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            height: 100vh;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Arial Black', sans-serif;
-            overflow: hidden;
+            height: 100vh;
         }
 
-        .content {
-            background: rgba(255, 255, 255, 0.85); /* Hübscher weißer Kasten */
-            padding: 30px 60px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            text-align: center;
+        /* Die Seitenleiste links */
+        nav {
+            width: 200px;
+            background-color: #1a1a1a;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            border-right: 2px solid #444;
         }
 
         h1 {
-            font-size: 6rem;
-            margin: 0;
-            color: #ff4757;
-            text-transform: uppercase;
-            letter-spacing: 5px;
+            font-size: 1.2rem;
+            color: #00adb5; /* Ein kleiner Farbtupfer für den Namen */
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            padding: 15px 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            background-color: #333;
+            color: white;
+        }
+
+        /* Der Hauptbereich rechts */
+        main {
+            flex-grow: 1;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .content-section {
+            display: none; /* Erstmal alles verstecken */
+        }
+
+        .active {
+            display: block; /* Nur den aktiven Teil zeigen */
         }
     </style>
 </head>
 <body>
 
-    <div class="content">
-        <h1>GAY!</h1>
-    </div>
+    <nav>
+        <h1>Schmillos Site</h1>
+        <a onclick="showSection('youtube')">YouTube</a>
+        <a onclick="showSection('downloads')">Downloads</a>
+        <a onclick="showSection('images')">Images</a>
+    </nav>
+
+    <main>
+        <div id="welcome" class="content-section active">
+            <h2>Willkommen auf Schmillos Site!</h2>
+            <p>Such dir links was aus, um loszulegen.</p>
+        </div>
+
+        <div id="youtube" class="content-section">
+            <h2>YouTube Bereich</h2>
+            <p>Hier könnten deine Lieblingsvideos oder Links stehen.</p>
+        </div>
+
+        <div id="downloads" class="content-section">
+            <h2>Download Bereich</h2>
+            <p>Hier kommen später deine Dateien hin.</p>
+        </div>
+
+        <div id="images" class="content-section">
+            <h2>Bilder Galerie</h2>
+            <p>Hier ist Platz für deine coolsten Pics.</p>
+        </div>
+    </main>
+
+    <script>
+        // Diese Funktion wechselt zwischen den Bereichen hin und her
+        function showSection(sectionId) {
+            // Alle Sektionen verstecken
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            // Die gewählte Sektion anzeigen
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
 
 </body>
 </html>
