@@ -5,94 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schmillos Site</title>
     <style>
-        body {
-            background-color: #2c2c2c;
-            color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            display: flex;
-            height: 100vh;
-        }
-        nav {
-            width: 200px;
-            background-color: #1a1a1a;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            border-right: 2px solid #444;
-        }
-        h1 {
-            font-size: 1.2rem;
-            color: #00adb5;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        nav a {
-            color: #ccc;
-            text-decoration: none;
-            padding: 15px 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-            transition: background 0.3s;
-            cursor: pointer;
-        }
-        nav a:hover {
-            background-color: #333;
-            color: white;
-        }
-        main {
-            flex-grow: 1;
-            padding: 40px;
-            text-align: center;
-        }
-        .content-section {
-            display: none;
-        }
-        .active {
-            display: block;
-        }
-        img {
-            margin-top: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
+        body { background-color: #2c2c2c; color: white; font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; height: 100vh; overflow: hidden; }
+        nav { width: 220px; background-color: #1a1a1a; padding: 20px; display: flex; flex-direction: column; border-right: 2px solid #444; }
+        h1 { color: #00adb5; text-align: center; font-size: 1.3rem; }
+        nav a { color: #ccc; text-decoration: none; padding: 15px 10px; margin: 5px 0; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        nav a:hover { background-color: #00adb5; color: black; }
+        main { flex-grow: 1; padding: 40px; overflow-y: auto; text-align: center; }
+        .content-section { display: none; }
+        .active { display: block; }
+        .video-container { margin-bottom: 50px; background-color: #333; padding: 20px; border-radius: 15px; max-width: 900px; margin-left: auto; margin-right: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        video { width: 100%; border-radius: 10px; background-color: #000; }
+        h2 { color: #00adb5; }
+        img { max-width: 300px; border-radius: 10px; }
     </style>
 </head>
 <body>
 
     <nav>
         <h1>Schmillos Site</h1>
-        <a onclick="showSection('youtube')">YouTube</a>
+        <a onclick="showSection('welcome')">Startseite</a>
+        <a onclick="showSection('youtube')">Meine Videos</a>
         <a onclick="showSection('downloads')">Downloads</a>
         <a onclick="showSection('images')">Images</a>
     </nav>
 
     <main>
         <div id="welcome" class="content-section active">
-            <h2>Willkommen auf Schmillos Site!</h2>
-            <p>Wähl links eine Option aus.</p>
+            <h2>Hey Schmillos! 👋</h2>
+            <p>Willkommen auf deiner Profi-Website.</p>
         </div>
 
         <div id="youtube" class="content-section">
-            <h2>YouTube Bereich</h2>
-            <p>Hier kommen bald Links hin.</p>
+            <h2>Meine Lieblingsvideos</h2>
+            
+            <div class="video-container">
+                <h3>Liblings video 1</h3>
+                <video controls>
+                    <source src="https://github.com/Schmillos/Schmillos/releases/download/test/Liblings.video.1.mp4" type="video/mp4">
+                    Dein Browser unterstützt das Video-Tag nicht.
+                </video>
+            </div>
+
+            <div class="video-container">
+                <h3>Liblings video 2</h3>
+                <video controls>
+                    <source src="https://github.com/Schmillos/Schmillos/releases/download/test/Liblings.video.2.mp4" type="video/mp4">
+                    Dein Browser unterstützt das Video-Tag nicht.
+                </video>
+            </div>
         </div>
 
         <div id="downloads" class="content-section">
-            <h2>Download Bereich</h2>
-            <p>Noch keine Dateien verfügbar.</p>
+            <h2>Downloads</h2>
+            <p>Hier kommen bald deine Files rein!</p>
         </div>
 
         <div id="images" class="content-section">
             <h2>Bilder Galerie</h2>
             <p>Dein Minecraft Skin:</p>
-            <img src="testbild.png" alt="Minecraft Skin" style="max-width: 300px; border-radius: 10px;">
+            <img src="testbild.png" alt="Minecraft Skin">
         </div>
     </main>
 
     <script>
         function showSection(sectionId) {
             const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => section.classList.remove('active'));
+            sections.forEach(s => s.classList.remove('active'));
             document.getElementById(sectionId).classList.add('active');
         }
     </script>
